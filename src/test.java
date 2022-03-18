@@ -1,14 +1,20 @@
-
+import java.util.Scanner;
 
 public class test {
 
 	public static void main(String[] args) {
-		System.out.println(" ÀÏ ¿ù  È­  ¼ö  ¸ñ ±İ  Åä");
-		System.out.println("--------------------");
-		System.out.println(" 1  2  3  4  5  6  7");
-		System.out.println(" 8  9 10 11 12 13 14");
-		System.out.println("15 16 17 18 19 20 21");
-		System.out.println("22 23 24 25 26 27 28");
+		System.out.println("ê°’ 2ê°œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+		
+		Scanner scanner = new Scanner(System.in);
+		String inputValue = scanner.nextLine();
+		
+		String[] splitedValue = inputValue.split(" ");
+		
+		int first = Integer.parseInt(splitedValue[0]);
+		int second = Integer.parseInt(splitedValue[1]);
+		
+		
+		System.out.println("ë‘ ìˆ˜ì˜ í•©ì€ "+ (first + second)+"ì…ë‹ˆë‹¤.");
 	}
 
 }
