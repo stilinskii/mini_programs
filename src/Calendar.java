@@ -9,13 +9,21 @@ public class Calendar {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("달을 입력해 주세요");
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		int month = scanner.nextInt();
+		
+		System.out.println("반복횟수를 입력하세요.");
+		int loopcount = scanner.nextInt();
+		
+		for(int i = 0; i < loopcount; i++) {
+			System.out.println("월을 입력하세요");
+			int month = scanner.nextInt();
+			System.out.printf("%d월의 마지막일은 %d일입니다.\n",month,cal.getmaxDaysOfMonth(month));
+		}
+		
+		System.out.println("끝");
 		
 		
-		System.out.printf("%d월의 마지막일은 %d일입니다.\n",month,cal.getmaxDaysOfMonth(month));
 		scanner.close();
 		
 	
