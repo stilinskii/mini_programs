@@ -41,6 +41,7 @@ public class ReveiwApplication {
 					editReview();
 					break;
 				case 5:
+					System.out.println("프로그램이 종료되었습니다.");
 					break label;
 
 				}
@@ -48,6 +49,8 @@ public class ReveiwApplication {
 		} catch (InputMismatchException e) {
 			System.out.println("잘못입력하셨습니다.");
 
+		}finally {
+			sc.close();
 		}
 
 	}
@@ -61,6 +64,7 @@ public class ReveiwApplication {
 //	후기: 좋았다
 
 	public static void inputReview() {
+		System.out.println("[후기입력]");
 
 		System.out.print("아이디 :");
 		String id = sc.next();
@@ -77,13 +81,13 @@ public class ReveiwApplication {
 				break;
 		}
 
+		sc.nextLine();//버퍼비우기
 		System.out.print("수업명 :");
-		sc.nextLine();
-		String class_name = sc.next();
+		String class_name = sc.nextLine();
 		System.out.print("강사 :");
-		String teacher = sc.next();
+		String teacher = sc.nextLine();
 		System.out.print("후기 :");
-		String comment = sc.next();
+		String comment = sc.nextLine();
 
 		if (type.equals("f")) {
 			Frontend_class f1 = new Frontend_class(class_name, id, teacher, comment, new Date());
@@ -97,6 +101,7 @@ public class ReveiwApplication {
 	}
 
 	public static void viewReview() {
+		System.out.println("[후기조회]");
 
 		if(review.isEmpty()) {
 			System.out.println("아직 작성된 후기가 없습니다.");
@@ -112,6 +117,7 @@ public class ReveiwApplication {
 	}
 
 	public static void delReview() {
+		System.out.println("[후기삭제]");
 		System.out.print("아이디 :");
 		String id = sc.next();
 		sc.nextLine();
@@ -121,7 +127,7 @@ public class ReveiwApplication {
 			if (data.getId().equals(id)) {
 				review.remove(data);
 				System.out.println("삭제되었습니다.");
-				//break;
+				break;
 			}
 			
 		}
@@ -129,22 +135,25 @@ public class ReveiwApplication {
 	}
 
 	public static void editReview() {
+		System.out.println("[후기수정]");
 
 		label: while (true) {
-			System.out.print("아이디 :");
-			String id = sc.next();
-			sc.nextLine();
+		
 
 			for (Review data : review) {
-				if (data.getId().equals(id)) {
+				sc.nextLine();
+				System.out.print("아이디 :");
+				String id = sc.next();
+				if (!(data.getId().equals(id))) {
+					System.out.println("해당 아이디로 남긴 후기가 없습니다.");
+				} else {
+					sc.nextLine();
 					System.out.print("후기 :");
 					String co = sc.nextLine();
 					data.setComment(co);
 					data.setTime(new Date());
 					System.out.println("수정이 완료되었습니다.");
 					break label;
-				} else {
-					System.out.println("해당 아이디로 남긴 후기가 없습니다.");
 				}
 
 			}
