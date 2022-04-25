@@ -28,7 +28,7 @@ public class MemberDAO {
 		
 		return DriverManager.getConnection(url,"hr","a1234");
 		
-	}
+	} 
 	
 	
 	
