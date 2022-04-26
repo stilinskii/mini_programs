@@ -7,6 +7,9 @@ public class Main {
 		
 		LoginPage loginPage = new LoginPage(idandPasswords.getLoginInfo());
 		//send loginInfo as an argument
+		
+		
+		
 	}
 
 }

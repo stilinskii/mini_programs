@@ -9,7 +9,6 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(String id, String password) {
-		super();
 		this.id = id;
 		this.password = password;
 	}

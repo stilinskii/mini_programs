@@ -67,6 +67,8 @@ public class LoginPage implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		MemberDAO dao = MemberDAO.getInstance();
+		
 		if(e.getSource()==resetButton) {
 			userIDField.setText("");
 			userPasswordField.setText("");
@@ -77,8 +79,10 @@ public class LoginPage implements ActionListener{
 			String userID = userIDField.getText();
 			String password = String.valueOf(userPasswordField.getPassword());
 			
-			if(logininfo.containsKey(userID)) {
-				if(logininfo.get(userID).equals(password)) {
+			
+			
+			if(dao.idChk(userID)) {
+				if(dao.passwordChk(password)) {
 					messageLabel.setForeground(Color.green);
 					messageLabel.setText("Login successful");
 					frame.dispose();
