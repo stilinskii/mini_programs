@@ -6,7 +6,7 @@ Please go check if intereted.
 
 
 ## Review Application
-[readme](https://google.com, "google link")
+[[for more details]](https://github.com/stilinskii/mini_projects/tree/master/src/review_application)
 
 ## Login System
 working on it
