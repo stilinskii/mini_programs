@@ -1,11 +1,12 @@
 # mini_projects
-practicing learning Java by making some programs
-
-The projects are not related to each other and have their own README file in their sorce folders.
+*practicing learning Java by making some programs*  
+  
+The projects are not related to each other and have their own README file in their sorce folders.  
 Please go check if intereted.
 
 
 ## Review Application
+[readme](https://google.com, "google link")
 
 ## Login System
 working on it
