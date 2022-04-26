@@ -1,8 +1,8 @@
 # mini_projects
 *practicing learning Java by making some programs*  
   
-These projects are not related to each other and have their own README file in their sorce folders.  
-Please go check if intereted.
+These projects are not related to each other and have their own README files in their source folders.  
+Please go check for more details.
 
 
 ## Review Application
