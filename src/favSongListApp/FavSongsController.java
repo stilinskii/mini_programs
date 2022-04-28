@@ -35,8 +35,8 @@ public class FavSongsController {
 	}
 
 	// update
-	public void updateFavSongsProcess(int column,String originVal,String editVal) {
-		daoModel.updateFavSongs(column, originVal, editVal);
+	public void updateFavSongsProcess(String title,int column,String editVal) {
+		daoModel.updateFavSongs(title, column, editVal);
 		updateView();
 	}
 

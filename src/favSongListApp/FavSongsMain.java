@@ -38,6 +38,7 @@ public class FavSongsMain {
 				break;
 			case 7:
 				System.out.println("종료");
+				sc.close();
 				break label;
 			}
 		}
@@ -61,27 +62,28 @@ public class FavSongsMain {
 		String singer = sc.nextLine();
 		System.out.print("발매년도 : ");
 		int released = sc.nextInt();
-		sc.close();
+
 		cont.insertFavSongsProcess(new FavSongsDTO(title, singer, released));
 
 	}
 
 	public static void updateFavSongsList() {
-		System.out.print("1. title 2. singer 3. released");
+		System.out.print("데이터의 노래 제목 : ");
+		String title = sc.nextLine();
+		System.out.print("어떤 항목을 바꾸시겠어요? 1. title 2. singer 3. released\n");
 		int column = sc.nextInt();
 		sc.nextLine();
-		System.out.print("바꿀정보 : ");
-		String originVal = sc.nextLine();
 		System.out.print("수정값 : ");
 		String editVal = sc.nextLine();
-		cont.updateFavSongsProcess(column,originVal,editVal);
+		cont.updateFavSongsProcess(title,column,editVal);
 
 	}
 
 	public static void deleteFavSongsList() {
 
 		System.out.print("삭제할 노래 제목을 입력하세요 : ");
-		cont.deleteFavSongsProcess(sc.nextLine());
+		String title = sc.nextLine();
+		cont.deleteFavSongsProcess(title);
 
 	}
 

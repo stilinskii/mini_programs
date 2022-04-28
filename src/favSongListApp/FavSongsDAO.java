@@ -171,30 +171,29 @@ public class FavSongsDAO {
 	}
 
 	// update
-	public int updateFavSongs(int column,String originVal,String editVal) {
+	public int updateFavSongs(String title,int column,String editVal) {
 		int chk = -1;
 		//노래이름검색 대소문자 insensitive, 모든 데이터 바꿈.
 		try {
 			conn=init();
-			String sql = "UPDATE SongList SET ?=? WHERE upper(?) = upper(?)";
-			pstmt = conn.prepareStatement(sql);
-		
-			// 컬럼을 키로, 원래값 예전값을 밸류로?
+			String sql = "";
+			
+			// 컬럼명을 ?로 주면 자꾸 에러가나서 어쩔 수 없이 하나하나 넣어줬다.
 			if(column==1) {
-				pstmt.setString(1, "song");
-				pstmt.setString(2, editVal.toString());
-				pstmt.setString(3, "song");
-				pstmt.setString(4, originVal.toString());
+				sql = "UPDATE SongList SET title = ? WHERE upper(title) = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, editVal);
+				pstmt.setString(2, title.toUpperCase());
 			}else if(column==2) {
-				pstmt.setString(1, "singer");
-				pstmt.setString(2, editVal.toString());
-				pstmt.setString(3, "singer");
-				pstmt.setString(4, originVal.toString());
+				sql = "UPDATE SongList SET singer = ? WHERE upper(title) = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, editVal);
+				pstmt.setString(2, title.toUpperCase());
 			}else if(column==3) {
-				pstmt.setString(1, "released");
-				pstmt.setInt(2, Integer.parseInt(editVal));
-				pstmt.setString(3, "released");
-				pstmt.setInt(4, Integer.parseInt(originVal));
+				sql = "UPDATE SongList SET released = ? WHERE upper(title) = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, Integer.parseInt(editVal));
+				pstmt.setString(2, title.toUpperCase());
 			}else {
 				System.out.println("잘못입력하셨습니다.");
 			}
@@ -227,9 +226,9 @@ public class FavSongsDAO {
 		
 		try {
 			conn = init();
-			String sql = "DELETE FROM SongList WHERE upper(title) = upper(?)";
+			String sql = "DELETE FROM SongList WHERE upper(title) = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title);
+			pstmt.setString(1, title.toUpperCase());
 			chk = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
