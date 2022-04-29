@@ -49,6 +49,6 @@ what I wanted to implement:
 * Overriding
 
 `Review Application` is the first program I've ever made by myself.  
-feel like the program is getting smaller than I planned as I started make it. I wanted to make it possible to edit all of the fields of the review when I was implementing `4. 후기수정` but I failed since the class type of reviews is different (FrontEnd_class or BackEnd_class) it was almost impossible or too complicated for me to implement. I know it is far from solving existing problems or something, but I think it is just enough for me who just learned basic Java syntax. I will keep learning. 
+feel like the program is getting smaller than I planned as I started to make it. At first, I planed to make the users possible to edit all of the fields of a review by `4. 후기수정` but I failed since the class types of review objects are different (FrontEnd_class or BackEnd_class) which made it almost impossible or too complicated for me to implement what I thought. So I had to make `4.후기수정` only able to edit comment field. I know it is far from solving existing problems(I heard that a program is to solve problems) or something but I think it is just enough for me who just learned basic Java syntax. I will keep learning. 
 
 
