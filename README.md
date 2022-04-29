@@ -5,8 +5,14 @@ These programs are not related to each other and have their own README files in 
 Please go check for more details.
 
 
-## Review Application
-[[for more details]](https://github.com/stilinskii/mini_projects/tree/master/src/review_application)
 
-## Login System
+## [Favorite Song List App](https://github.com/stilinskii/mini_programs/tree/master/src/favSongListApp)    
 working on it
+
+## [Login System](https://github.com/stilinskii/mini_programs/tree/master/src/login_system)
+working on it
+
+
+## [Review Application](https://github.com/stilinskii/mini_projects/tree/master/src/review_application)
+
+
