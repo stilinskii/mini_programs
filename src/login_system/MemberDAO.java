@@ -52,8 +52,6 @@ public class MemberDAO {
 		
 	
 	//for id and password check
-	
-	// save id and passwords to list collection
 	public int loginChk(String id, String pw) {
 		
 			
@@ -93,21 +91,6 @@ public class MemberDAO {
 	}
 	
 
-	
-	
-	//id password check
-//
-//	public boolean idChk(String userid){
-//		
-//		for(MemberDTO dto:dao.listMember()){
-//			if(dto.getId().equals(userid)) {
-//				return true;
-//			}}
-//		
-//				return false;
-//
-//	}
-//
 	
 
 }
