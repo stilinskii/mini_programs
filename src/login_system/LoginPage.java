@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 public class LoginPage implements ActionListener{
 	
 	JFrame frame = new JFrame();
+	JLabel	loginLabel = new JLabel("Login");
 	JButton loginButton = new JButton("Login");
 	JButton joinButton = new JButton("Join");
 	JTextField userIDField = new JTextField();
@@ -23,13 +24,15 @@ public class LoginPage implements ActionListener{
 	JLabel userPasswordLabel = new JLabel("password:");
 	JLabel messageLabel = new JLabel();
 	
-	//to copy loginInfo
-	//HashMap<String,String> logininfo = new HashMap<String,String>();
+
 	
 	LoginPage() {
 		
-		//logininfo = loginInfoOriginal;
-		//copy the loginInfo so that it can be globally available
+		
+		loginLabel.setBounds(160,40,250,35);
+		loginLabel.setFont(new Font(null,Font.BOLD,25));
+		loginLabel.setText("Login");
+		
 		
 		userIDLabel.setBounds(50,100,75,25);
 		userPasswordLabel.setBounds(50,150,75,25);
@@ -49,6 +52,7 @@ public class LoginPage implements ActionListener{
 		joinButton.addActionListener(this);
 		
 		
+		frame.add(loginLabel);
 		frame.add(userIDLabel);
 		frame.add(userPasswordLabel);
 		frame.add(userIDField);
@@ -60,6 +64,7 @@ public class LoginPage implements ActionListener{
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420,420);
+		frame.setLocation(550,200);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
@@ -70,8 +75,8 @@ public class LoginPage implements ActionListener{
 		MemberDAO dao = MemberDAO.getInstance();
 		
 		if(e.getSource()==joinButton) {
-			userIDField.setText("");
-			userPasswordField.setText("");
+			frame.dispose();
+			JoinPage joinPage = new JoinPage();
 		}
 		
 		
@@ -89,7 +94,6 @@ public class LoginPage implements ActionListener{
 			}else if(chk==2){
 					messageLabel.setForeground(Color.red);
 					messageLabel.setText("WRONG PASSWORD");
-					userIDField.setText("");
 					userPasswordField.setText("");
 
 			}else {
