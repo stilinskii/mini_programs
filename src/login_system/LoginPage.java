@@ -16,7 +16,7 @@ public class LoginPage implements ActionListener{
 	
 	JFrame frame = new JFrame();
 	JButton loginButton = new JButton("Login");
-	JButton resetButton = new JButton("Reset");
+	JButton joinButton = new JButton("Join");
 	JTextField userIDField = new JTextField();
 	JPasswordField userPasswordField = new JPasswordField();
 	JLabel userIDLabel = new JLabel("userID:");
@@ -24,11 +24,11 @@ public class LoginPage implements ActionListener{
 	JLabel messageLabel = new JLabel();
 	
 	//to copy loginInfo
-	HashMap<String,String> logininfo = new HashMap<String,String>();
+	//HashMap<String,String> logininfo = new HashMap<String,String>();
 	
-	LoginPage(HashMap<String,String> loginInfoOriginal) {
+	LoginPage() {
 		
-		logininfo = loginInfoOriginal;
+		//logininfo = loginInfoOriginal;
 		//copy the loginInfo so that it can be globally available
 		
 		userIDLabel.setBounds(50,100,75,25);
@@ -44,9 +44,9 @@ public class LoginPage implements ActionListener{
 		loginButton.setBounds(125, 200, 100, 25);
 		loginButton.setFocusable(false);
 		loginButton.addActionListener(this);
-		resetButton.setBounds(225, 200, 100, 25);
-		resetButton.setFocusable(false);
-		resetButton.addActionListener(this);
+		joinButton.setBounds(225, 200, 100, 25);
+		joinButton.setFocusable(false);
+		joinButton.addActionListener(this);
 		
 		
 		frame.add(userIDLabel);
@@ -54,7 +54,7 @@ public class LoginPage implements ActionListener{
 		frame.add(userIDField);
 		frame.add(userPasswordField);
 		frame.add(loginButton);
-		frame.add(resetButton);
+		frame.add(joinButton);
 		frame.add(messageLabel);
 		
 		
@@ -69,7 +69,7 @@ public class LoginPage implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		MemberDAO dao = MemberDAO.getInstance();
 		
-		if(e.getSource()==resetButton) {
+		if(e.getSource()==joinButton) {
 			userIDField.setText("");
 			userPasswordField.setText("");
 		}
@@ -79,23 +79,24 @@ public class LoginPage implements ActionListener{
 			String userID = userIDField.getText();
 			String password = String.valueOf(userPasswordField.getPassword());
 			
+			int chk=dao.loginChk(userID,password);
 			
-			
-			if(dao.idChk(userID)) {
-				if(dao.passwordChk(password)) {
+			if(chk==1) {
 					messageLabel.setForeground(Color.green);
 					messageLabel.setText("Login successful");
 					frame.dispose();
 					WelcomePage welcomePage = new WelcomePage(userID);
-				}
-				else {
+			}else if(chk==2){
 					messageLabel.setForeground(Color.red);
 					messageLabel.setText("WRONG PASSWORD");
-					
-				}
+					userIDField.setText("");
+					userPasswordField.setText("");
+
 			}else {
 				messageLabel.setForeground(Color.red);
 				messageLabel.setText("username not found ");
+				userIDField.setText("");
+				userPasswordField.setText("");
 				
 			}
 			
