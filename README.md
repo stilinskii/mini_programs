@@ -10,7 +10,6 @@ Please go check for more details.
 working on it
 
 ## [Login System](https://github.com/stilinskii/mini_programs/tree/master/src/login_system)
-working on it
 
 
 ## [Review Application](https://github.com/stilinskii/mini_projects/tree/master/src/review_application)
