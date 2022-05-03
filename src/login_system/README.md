@@ -6,9 +6,9 @@ So I wnated to link the login system to DB and add sign in function.
 
 ### What I want to do:  
 link login system to access Oracle DB  
-add join system 
-add logout
-add image  
+add join system   
+add logout  
+add image    
 
 
 
