@@ -1,3 +1,4 @@
+import java.time.DayOfWeek;
 import java.util.Scanner;
 
 public class Calendar {
@@ -11,6 +12,8 @@ public class Calendar {
 	public static void main(String[] args) {
 		String PROMPT = "cal> ";
 		Scanner scanner = new Scanner(System.in);
+		
+		
 
 		while (true) {
 			System.out.println("월을 입력하세요");
