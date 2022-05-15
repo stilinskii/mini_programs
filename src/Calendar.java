@@ -1,4 +1,4 @@
-import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Calendar {
@@ -16,6 +16,11 @@ public class Calendar {
 		
 
 		while (true) {
+			
+			
+			System.out.println("년도를 입력하세요");
+			System.out.print(PROMPT);
+			int year = scanner.nextInt();
 			System.out.println("월을 입력하세요");
 			System.out.print(PROMPT);
 			int month = scanner.nextInt();
@@ -24,7 +29,7 @@ public class Calendar {
 			} else if (month > 12 || month <= 0) {
 				continue;
 			} else {
-				printCalendar(2022,month);
+				printCalendar(year,month);
 				
 			}
 		}
@@ -39,12 +44,23 @@ public class Calendar {
 	public static void printCalendar(int year, int month) {
 		int maxDayOfMonth = getmaxDaysOfMonth(month);
 		System.out.printf("%d월의 마지막일은 %d일입니다.\n", month, maxDayOfMonth);
+		int inputDayOfWeek = LocalDate.of(year, month, 1).getDayOfWeek().getValue();
 		System.out.printf("     <%d년 %d월>\n",year, month);
 		System.out.println(" SU MO TU WE TU FR SA");
 		System.out.println("----------------------");
+		int[] dayOfWeek = {7, 1, 2, 3, 4, 5, 6};
+		
+		for(int i =0;i<dayOfWeek.length;i++) {
+			if(inputDayOfWeek==dayOfWeek[i]) {
+				break;
+			}else {
+				System.out.print("   ");
+			}
+		}
+		
 		for (int i = 1; i <= maxDayOfMonth; i++) {
 			System.out.printf("%3d", i);
-			if (i % 7 == 0) {
+			if (LocalDate.of(year, month, i).getDayOfWeek().getValue() % 6==0) {
 				System.out.println();
 			}
 		}
