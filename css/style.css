@@ -1,0 +1,5 @@
+.hidden {
+  display: none;
+  /* visibility:hidden은 공간은 그대로 두고 보이지않게
+   display:none은 잡아둔 공간도 사라진다 */
+}
